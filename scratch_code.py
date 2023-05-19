@@ -264,3 +264,12 @@ class Customer:
     with Customer("Robert", "Florence") as robert:
         robert.greet()
 
+
+class World:
+    def __init__(self):
+        print("I'm alive!")
+
+    def __init__(self):
+        print("I'm gone!")
+
+
