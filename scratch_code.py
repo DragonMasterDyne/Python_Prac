@@ -275,39 +275,63 @@
 # earth = World()
 # del(earth)
  
-# Convert kilometers to miles
-class Converter:
-    def __init__(self, km):
-        self.km = km
-    def to_miles(self):
-        return self.km / 1.609
+# # Convert kilometers to miles
+# class Converter:
+#     def __init__(self, km):
+#         self.km = km
+#     def to_miles(self):
+#         return self.km / 1.609
     
-# Convert 3 kilometers to miles
-distance1 = Converter(3)
-print(distance1.to_miles())
+# # Convert 3 kilometers to miles
+# distance1 = Converter(3)
+# print(distance1.to_miles())
 
 
-class Distance:
-    def __init__(self, km):
-        self._km = km
+# class Distance:
+#     def __init__(self, km):
+#         self._km = km
+
+#     @property
+#     def km(self):
+#         return self._km
+    
+#     @km.setter
+#     def km(self, value):
+#         self._km = value
+
+#     @property
+#     def miles(self):
+#         return self._km / 1.609
+    
+#     @miles.setter
+#     def miles(self, value):
+#         self._km = value * 1.609
+
+# distance2 = Distance(3)
+# print("3 killometers is " + str(distance2.miles) + " miles.")
+# distance2.miles = 3
+# print(str(distance2.miles) + " miles is " + str(distance2.km) + " kilometers.")
+
+class Length:
+    def __init__(self, cm):
+        self._cm = cm
 
     @property
-    def km(self):
-        return self._km
-    
-    @km.setter
-    def km(self, value):
-        self._km = value
+    def cm(self):
+        return self._cm
+    @cm.setter
+    def cm(self, value):
+        self._cm = value
 
     @property
-    def miles(self):
-        return self._km / 1.609
+    def inch(self):
+        return self._inch
     
-    @miles.setter
-    def miles(self, value):
-        self._km = value * 1.609
+    @inch.setter
+    def inch(self, value):
+        self.inch = value * 2.54
 
-distance2 = Distance(3)
-print("3 killometers is " + str(distance2.miles) + " miles.")
-distance2.miles = 3
-print(str(distance2.miles) + " miles is " + str(distance2.km) + " kilometers.")
+
+
+
+
