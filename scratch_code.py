@@ -221,56 +221,93 @@
 # w = World()
 
 # Define a new class
-class Customer:
-    def __init__(self, name, city):
-        self.name = name
-        self.city = city
+# class Customer:
+#     def __init__(self, name, city):
+#         self.name = name
+#         self.city = city
 
-    def greet(self):
-        print("Hello, " + self.name + "!")
-# Create three objects based on the Customer class
-c1 = Customer("Sarah", "Atlanta")
-c2 = Customer("Robert", "Florence")
-c3 = Customer("Thomas", "Denver")
+#     def greet(self):
+#         print("Hello, " + self.name + "!")
+# # Create three objects based on the Customer class
+# c1 = Customer("Sarah", "Atlanta")
+# c2 = Customer("Robert", "Florence")
+# c3 = Customer("Thomas", "Denver")
 
-# Add customer objects to a list
-customers = [c1, c2, c3]
+# # Add customer objects to a list
+# customers = [c1, c2, c3]
 
-# Iterate through list, greet, then display information
-for c in customers:
-    c.greet()
-    print(c.name + " lives in " + c.city + ".")
+# # Iterate through list, greet, then display information
+# for c in customers:
+#     c.greet()
+#     print(c.name + " lives in " + c.city + ".")
 
 
 
-class Customer:
-    def __init__(self, name, city):
-        self.name = name
-        self.city = city
+# class Customer:
+#     def __init__(self, name, city):
+#         self.name = name
+#         self.city = city
 
-    def __enter__(self):
-        print("Entering scope.")
-        # Run code upon entering scope of with statement
-        return self
+#     def __enter__(self):
+#         print("Entering scope.")
+#         # Run code upon entering scope of with statement
+#         return self
     
-    def __exit__(self, exc_type, exc_value, traceback):
-        print("Leaving scope")
-        # Run code upon leaving scope of width statement
+#     def __exit__(self, exc_type, exc_value, traceback):
+#         print("Leaving scope")
+#         # Run code upon leaving scope of width statement
 
-    def greet(self):
-        print("Hello, " + self.name + "!")
+#     def greet(self):
+#         print("Hello, " + self.name + "!")
 
-    # Use with to create a scope
-    with Customer("Robert", "Florence") as robert:
-        robert.greet()
+#     # Use with to create a scope
+# with Customer("Robert", "Florence") as robert:
+#         robert.greet()
 
 
-class World:
-    def __init__(self):
-        print("I'm alive!")
+# class World:
+#     def __init__(self):
+#         print("I'm alive!")
 
-    def __init__(self):
-        print("I'm gone!")
+#     def __del__(self):
+#         print("I'm gone!")
  
- # Test for Git
- # Test for seeing changes
+# earth = World()
+# del(earth)
+ 
+# Convert kilometers to miles
+class Converter:
+    def __init__(self, km):
+        self.km = km
+    def to_miles(self):
+        return self.km / 1.609
+    
+# Convert 3 kilometers to miles
+distance1 = Converter(3)
+print(distance1.to_miles())
+
+
+class Distance:
+    def __init__(self, km):
+        self._km = km
+
+    @property
+    def km(self):
+        return self._km
+    
+    @km.setter
+    def km(self, value):
+        self._km = value
+
+    @property
+    def miles(self):
+        return self._km / 1.609
+    
+    @miles.setter
+    def miles(self, value):
+        self._km = value * 1.609
+
+distance2 = Distance(3)
+print("3 killometers is " + str(distance2.miles) + " miles.")
+distance2.miles = 3
+print(str(distance2.miles) + " miles is " + str(distance2.km) + " kilometers.")
