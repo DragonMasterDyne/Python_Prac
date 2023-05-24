@@ -2,46 +2,7 @@
 # Copyright  (C) 2023 ClydeBank Media, All Rights Reserved
 
 # Improt items from the random module to generate weather
-from random import seed
-from random import randint
-
-
-# Current day number
-day = 1
-
-# Starting cash on hand
-cash = 100.00
-
-# Coffee on hand
-coffee = 100
-
-
-# Sales list of dictionaries
-# sales = [
-#   {
-#       "day": 1,
-#       "coffee_inv": 100,
-#       "advertising": "10",
-#       "tem": 68,
-#       "cups_sold": 16
-#    },
-#    {
-#       "day": 2,
-#       "coffee_inv": 84,
-#       "advertising": "15",
-#       "tem": 72,
-#       "cups_sold": 20
-#    },
-#       "day": 1,
-#       "coffee_inv": 64,
-#       "advertising": "5",
-#       "tem": 78,
-#       "cups_sold": 10
-#    }
-# ]
-# Create an emty sales list
-sales = []
-
+import random
 
 def welcom():   
     print(" Coffe Shop Simulator 400, Version 1.00")
@@ -68,6 +29,20 @@ def convert_to_float(s):
     except ValueError:
         f = 0
     return f
+
+def x_of_y(x,y):
+    num_list = []
+    # Return a list of x copies of y
+    for i in range(x):
+        num_list.append(y)
+    return num_list
+
+# TODO Start here TODO
+class CoffeeShopSimulator:
+
+    # Minimum
+
+
 def get_weather():
     # Generate a random temperature between 20 and 90
     # We'll consider seasons later on, but this is good enough for now
@@ -114,3 +89,42 @@ while running:
 
     # Before we loop around we add a day
     day += 1
+
+    
+# # Current day number
+# day = 1
+
+# # Starting cash on hand
+# cash = 100.00
+
+# # Coffee on hand
+# coffee = 100
+
+
+# # Sales list of dictionaries
+# # sales = [
+# #   {
+# #       "day": 1,
+# #       "coffee_inv": 100,
+# #       "advertising": "10",
+# #       "tem": 68,
+# #       "cups_sold": 16
+# #    },
+# #    {
+# #       "day": 2,
+# #       "coffee_inv": 84,
+# #       "advertising": "15",
+# #       "tem": 72,
+# #       "cups_sold": 20
+# #    },
+# #       "day": 1,
+# #       "coffee_inv": 64,
+# #       "advertising": "5",
+# #       "tem": 78,
+# #       "cups_sold": 10
+# #    }
+# # ]
+# # Create an emty sales list
+# sales = []
+
+# # 
