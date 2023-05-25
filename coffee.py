@@ -37,10 +37,60 @@ def x_of_y(x,y):
         num_list.append(y)
     return num_list
 
-# TODO Start here TODO
+
 class CoffeeShopSimulator:
 
-    # Minimum
+    # Minimum  and maximum temperatures
+    TEMP_MIN = 20
+    TEMP_MAX = 90
+
+    def __init__(self, player_name, shop_name):
+        # Set player and coffee shop names
+        self.player_name = player_name
+        self.shop_name = shop_name
+
+        # Current day number
+        self.day = 1
+
+        # Cash on hand at start
+        self.cash = 100.00
+
+        # Inventory at start
+        self.coffee_inventory = 100
+
+        # Sales list
+        self.sales = []
+
+        # Possible temperatures
+        self.tempa = self.make_temp_distrbution()
+
+    def run(self):
+        print("\nOk, let's get started. Have fun!")
+
+        # The main game loop
+        running = True
+        while running:
+            # Display the day and add a "fancy" text effect
+            print("\n------| Day " + str(day) + " @ " + shop_name + " |-------")
+
+            # Display the cash and weather
+            temperature = self.weather
+
+            # Display the cash and weather
+            daily_stats(cash, temperature, coffee)
+
+            # Get price of a cup of coffee 
+            cup_price = prompt("What do you want to charge per cup of coffee? ")
+    
+            # Get advertising buddget
+            print("\nYou can buy advertising to help promote sales.")
+            advertising = prompt("How much advertising do you want to spend on advertising? (0 for none)?", False)
+
+            # Convert advertising to float
+            advertising = convert_to_float(advertising)
+
+            # Deduct advertising from cash on hand
+            cash -= advertising
 
 
 def get_weather():
@@ -59,30 +109,7 @@ shop_name = prompt("What do you want to name your coffe shop?", True)
 # We have what we need, so let's get started!
 print("\nOk, let's get started, Have fun!")
 
-# The main game loop
-running = True
-while running:
-    # Display the day and add a "fancy" text effect
-    print("\n------| Day " + str(day) + " @ " + shop_name + " |-------")
 
-    # Display the cash and weather
-    temperature = get_weather()
-
-    # Display the cash and weather
-    daily_stats(cash, temperature, coffee)
-
-    # Get price of a cup of coffee 
-    cup_price = prompt("What do you want to charge per cup of coffee? ")
-    
-    # Get advertising buddget
-    print("\nYou can buy advertising to help promote sales.")
-    advertising = prompt("How much advertising do you want to spend on advertising? (0 for none)?", False)
-
-    # Convert advertising to float
-    advertising = convert_to_float(advertising)
-
-    # Deduct advertising from cash on hand
-    cash -= advertising
 
     # TODO: calculate today's preformance
     # TODO: Display today's preformance
