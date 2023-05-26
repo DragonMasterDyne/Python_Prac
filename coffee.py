@@ -73,14 +73,14 @@ class CoffeeShopSimulator:
             # Display the day and add a "fancy" text effect
             print("\n------| Day " + str(day) + " @ " + shop_name + " |-------")
 
-            # Display the cash and weather
+            # Get the weather
             temperature = self.weather
 
             # Display the cash and weather
-            daily_stats(cash, temperature, coffee)
+            self.daily_stats(temperature)
 
             # Get price of a cup of coffee 
-            cup_price = prompt("What do you want to charge per cup of coffee? ")
+            cup_price = float(prompt("What do you want to charge per cup of coffee? "))
     
             # Get advertising buddget
             print("\nYou can buy advertising to help promote sales.")
@@ -90,7 +90,21 @@ class CoffeeShopSimulator:
             advertising = convert_to_float(advertising)
 
             # Deduct advertising from cash on hand
-            cash -= advertising
+            self.cash -= advertising
+
+            # Simulate today's sales
+            cups_sold = self.simulate(temperature, advertising, cup_price)
+            gross_profit = cups_sold * cup_price
+
+            # Display the results
+            print("You sold " + str(cups_sold) + " cups of coffee today.")
+            print("You make $" + str(gross_profit) + ".")
+
+            # Addthe profit to our coffers
+            self.increment_day()
+    
+    def simulate(self, temperature, advertising, cup_price):
+       # TODO 
 
 
 def get_weather():
