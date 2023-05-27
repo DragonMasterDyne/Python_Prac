@@ -62,7 +62,7 @@ class CoffeeShopSimulator:
         self.sales = []
 
         # Possible temperatures
-        self.temps = self.make_temp_distrbution()
+        self.temps = self.make_temp_distribution()
 
     def run(self):
         print("\nOk, let's get started. Have fun!")
@@ -179,38 +179,3 @@ game = CoffeeShopSimulator(t_name, t_shop_name)
 # Run the game
 game.run()
   
-# # Current day number
-# day = 1
-
-# # Starting cash on hand
-# cash = 100.00
-
-# # Coffee on hand
-# coffee = 100
-
-
-# # Sales list of dictionaries
-# # sales = [
-# #   {
-# #       "day": 1,
-# #       "coffee_inv": 100,
-# #       "advertising": "10",
-# #       "tem": 68,
-# #       "cups_sold": 16
-# #    },
-# #    {
-# #       "day": 2,
-# #       "coffee_inv": 84,
-# #       "advertising": "15",
-# #       "tem": 72,
-# #       "cups_sold": 20
-# #    },
-# #       "day": 1,
-# #       "coffee_inv": 64,
-# #       "advertising": "5",
-# #       "tem": 78,
-# #       "cups_sold": 10
-# #    }
-# # ]
-# # Create an emty sales list
-# sales = []
