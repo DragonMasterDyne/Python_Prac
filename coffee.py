@@ -104,22 +104,22 @@ class CoffeeShopSimulator:
             self.increment_day()
     
     def simulate(self, temperature, advertising, cup_price):
-       # Find out hom many cups were sold
-       cups_sold = self.daily_sales(temperature, advertising)
+        # Find out hom many cups were sold
+        cups_sold = self.daily_sales(temperature, advertising)
 
-       # Save the data for today
-       self.sales.append((
-           "day": self.day,
-           "coffee_inv": self.coffee_inventory,
-           "advertising": advertising,
-           "temp", temperature,
-           "cup_price": cup_price,
-           "cups_sold": cups_sold
-       ))
+        # Save the data for today
+        self.sales.append({
+            "day": self.day,
+            "coffee_inv": self.coffee_inventory,
+            "advertising": advertising,
+            "temp": temperature,
+            "cup_price": cup_price,
+            "cups_sold": cups_sold
+        })
 
-       # We technically don't need this, but why make the next step
-       # read from the sales list when we have the data right here
-       return cups_sold
+        # We technically don't need this, but why make the next step
+        # read from the sales list when we have the data right here
+        return cups_sold
     
 def make_temp_distribution(self):
     # This is not a good bell curve, but it will do for now
@@ -133,7 +133,21 @@ def make_temp_distribution(self):
 
     # Loop through all possible temperatures
     for i in range(self.TEMP_MIN, self.TEMP_MAX):
-        # TODO
+        # How far away is the temperature from average?
+        # abs() gives us the absolute value
+        dist_from_avg = abs(avg - i)
+        # How far away is the dist_from_avg from the maxium
+        # This will be lower for temps at the extrems
+        dist_from_max_dist = max_dist_from_avg - dist_from_avg
+        # If the value is zero, make it one
+        if dist_from_max_dist == 0:
+            dist_from_max_dist = 1
+        # Append the output of x_of_y to temps
+        for t in x_of_y(int(dist_from_max_dist), i):
+            temps.append(t)
+        return temps
+
+
 
 def get_weather():
     # Generate a random temperature between 20 and 90
@@ -195,5 +209,3 @@ print("\nOk, let's get started, Have fun!")
 # # ]
 # # Create an emty sales list
 # sales = []
-
-# # 
