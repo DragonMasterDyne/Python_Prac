@@ -62,7 +62,7 @@ class CoffeeShopSimulator:
         self.sales = []
 
         # Possible temperatures
-        self.tempa = self.make_temp_distrbution()
+        self.temps = self.make_temp_distrbution()
 
     def run(self):
         print("\nOk, let's get started. Have fun!")
@@ -121,49 +121,50 @@ class CoffeeShopSimulator:
         # read from the sales list when we have the data right here
         return cups_sold
     
-def make_temp_distribution(self):
-    # This is not a good bell curve, but it will do for now
-    # until we get to more advanced mathematice
-    temps= []
+    def make_temp_distribution(self):
+        # This is not a good bell curve, but it will do for now
+        # until we get to more advanced mathematice
+        temps = []
 
-    # First, find the average between TEMP_MIN and TEMP_MAX
-    avg = (self.TEMP_MIN + self.TEMP_MAX) / 2
-    # Find the distance between TEMP_MAX and the average
-    max_dist_from_avg = self.TEMP_MAX - avg
+        # First, find the average between TEMP_MIN and TEMP_MAX
+        avg = (self.TEMP_MIN + self.TEMP_MAX) / 2
+        # Find the distance between TEMP_MAX and the average
+        max_dist_from_avg = self.TEMP_MAX - avg
 
-    # Loop through all possible temperatures
-    for i in range(self.TEMP_MIN, self.TEMP_MAX):
-        # How far away is the temperature from average?
-        # abs() gives us the absolute value
-        dist_from_avg = abs(avg - i)
-        # How far away is the dist_from_avg from the maxium
-        # This will be lower for temps at the extrems
-        dist_from_max_dist = max_dist_from_avg - dist_from_avg
-        # If the value is zero, make it one
-        if dist_from_max_dist == 0:
-            dist_from_max_dist = 1
-        # Append the output of x_of_y to temps
-        for t in x_of_y(int(dist_from_max_dist), i):
-            temps.append(t)
-        return temps
-def increment_day(self):
-    self.day += 1
+        # Loop through all possible temperatures
+        for i in range(self.TEMP_MIN, self.TEMP_MAX):
+            # How far away is the temperature from average?
+            # abs() gives us the absolute value
+            dist_from_avg = abs(avg - i)
+            # How far away is the dist_from_avg from the maxium
+            # This will be lower for temps at the extrems
+            dist_from_max_dist = max_dist_from_avg - dist_from_avg
+            # If the value is zero, make it one
+            if dist_from_max_dist == 0:
+                dist_from_max_dist = 1
+            # Append the output of x_of_y to temps
+            for t in x_of_y(int(dist_from_max_dist), i):
+                temps.append(t)
+            return temps
+        
+    def increment_day(self):
+        self.day += 1
 
-def daily_stats(self, temperature):
-    print("You have $" + str(self.cash) + " cash on hand and the temperature is " + str(temperature) + ".")
-    print("You have enough coffee on hand to " + str(self.coffee_inventory) + " cups.\n")
+    def daily_stats(self, temperature):
+        print("You have $" + str(self.cash) + " cash on hand and the temperature is " + str(temperature) + ".")
+        print("You have enough coffee on hand to " + str(self.coffee_inventory) + " cups.\n")
 
-def day_header(self):
-    print("\n------| Day " + str(self.day) + " @ " + self.shop_name + " |------")
+    def day_header(self):
+        print("\n------| Day " + str(self.day) + " @ " + self.shop_name + " |------")
 
-def daily_sales(self, temperature, advertising):
-    return int((self.TEMP_MAX - temperature) * (advertising * 0.5))
+    def daily_sales(self, temperature, advertising):
+        return int((self.TEMP_MAX - temperature) * (advertising * 0.5))
 
-@property
-def weather(self):
-    # Generate a random temperature between 20 and 90
-    # We'll consider seasons later on, but this is good enough for now
-    return random.choice(self.temps)
+    @property
+    def weather(self):
+        # Generate a random temperature between 20 and 90
+        # We'll consider seasons later on, but this is good enough for now
+        return random.choice(self.temps)
 
 # print welcome message
 welcome()
