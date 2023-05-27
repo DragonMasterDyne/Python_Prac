@@ -314,28 +314,28 @@
 
 # Convert inch to cm
 
-class Length:
-    def __init__(self, inch):
-        self._inch = inch
+# class Length:
+#     def __init__(self, inch):
+#         self._inch = inch
 
-    @property
-    def inch(self):
-        return self._inch
-    @inch.setter
-    def inch(self, value):
-        self._inch = value
+#     @property
+#     def inch(self):
+#         return self._inch
+#     @inch.setter
+#     def inch(self, value):
+#         self._inch = value
 
-    @property
-    def cm(self):
-        return self._inch * 2.54
+#     @property
+#     def cm(self):
+#         return self._inch * 2.54
     
-    @cm.setter
-    def cm(self, value):
-        self._inch = value / 2.54
+#     @cm.setter
+#     def cm(self, value):
+#         self._inch = value / 2.54
 
-inch_to_cm = Length(3)
-print("3 inches is " + str(inch_to_cm.cm) + " centimeters.")
-inch_to_cm.cm = 5.08
-print(str(inch_to_cm.inch) + " inches is " + str(inch_to_cm.cm) + " centimeters.")
+# inch_to_cm = Length(3)
+# print("3 inches is " + str(inch_to_cm.cm) + " centimeters.")
+# inch_to_cm.cm = 5.08
+# print(str(inch_to_cm.inch) + " inches is " + str(inch_to_cm.cm) + " centimeters.")
 
 
