@@ -4,7 +4,7 @@
 # Improt items from the random module to generate weather
 import random
 
-def welcom():   
+def welcome():   
     print(" Coffe Shop Simulator 400, Version 1.00")
     print(" Copyright  (C) 2023 ClydeBank Media, All Rights Reserved.\n")
     print(" Let's collect some information before we start the game.\n")
@@ -71,7 +71,7 @@ class CoffeeShopSimulator:
         running = True
         while running:
             # Display the day and add a "fancy" text effect
-            print("\n------| Day " + str(day) + " @ " + shop_name + " |-------")
+            self.day_header()
 
             # Get the weather
             temperature = self.weather
@@ -146,34 +146,38 @@ def make_temp_distribution(self):
         for t in x_of_y(int(dist_from_max_dist), i):
             temps.append(t)
         return temps
+def increment_day(self):
+    self.day += 1
 
+def daily_stats(self, temperature):
+    print("You have $" + str(self.cash) + " cash on hand and the temperature is " + str(temperature) + ".")
+    print("You have enough coffee on hand to " + str(self.coffee_inventory) + " cups.\n")
 
+def day_header(self):
+    print("\n------| Day " + str(self.day) + " @ " + self.shop_name + " |------")
 
-def get_weather():
+def daily_sales(self, temperature, advertising):
+    return int((self.TEMP_MAX - temperature) * (advertising * 0.5))
+
+@property
+def weather(self):
     # Generate a random temperature between 20 and 90
     # We'll consider seasons later on, but this is good enough for now
-    return randint(20,90)
+    return random.choice(self.temps)
 
 # print welcome message
-welcom()
+welcome()
 
 # Get name and shop name
+t_name = prompt("What is your name? ", True)
+t_shop_name = prompt("What do you want to name your coffe shop?", True)
 
-name = prompt("What is your name? ", True)
-shop_name = prompt("What do you want to name your coffe shop?", True)
+# Create the game object
+game = CoffeeShopSimulator(t_name, t_shop_name)
 
-# We have what we need, so let's get started!
-print("\nOk, let's get started, Have fun!")
-
-
-
-    # TODO: calculate today's preformance
-    # TODO: Display today's preformance
-
-    # Before we loop around we add a day
-    day += 1
-
-    
+# Run the game
+game.run()
+  
 # # Current day number
 # day = 1
 
