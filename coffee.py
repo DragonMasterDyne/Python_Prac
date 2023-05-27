@@ -104,8 +104,36 @@ class CoffeeShopSimulator:
             self.increment_day()
     
     def simulate(self, temperature, advertising, cup_price):
-       # TODO 
+       # Find out hom many cups were sold
+       cups_sold = self.daily_sales(temperature, advertising)
 
+       # Save the data for today
+       self.sales.append((
+           "day": self.day,
+           "coffee_inv": self.coffee_inventory,
+           "advertising": advertising,
+           "temp", temperature,
+           "cup_price": cup_price,
+           "cups_sold": cups_sold
+       ))
+
+       # We technically don't need this, but why make the next step
+       # read from the sales list when we have the data right here
+       return cups_sold
+    
+def make_temp_distribution(self):
+    # This is not a good bell curve, but it will do for now
+    # until we get to more advanced mathematice
+    temps= []
+
+    # First, find the average between TEMP_MIN and TEMP_MAX
+    avg = (self.TEMP_MIN + self.TEMP_MAX) / 2
+    # Find the distance between TEMP_MAX and the average
+    max_dist_from_avg = self.TEMP_MAX - avg
+
+    # Loop through all possible temperatures
+    for i in range(self.TEMP_MIN, self.TEMP_MAX):
+        # TODO
 
 def get_weather():
     # Generate a random temperature between 20 and 90
